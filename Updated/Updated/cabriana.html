@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Viga|Charm|Sigmar+One|Ultra|Fredoka+One|Arapey|Indie+Flower" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<body background="img11.jpg">
+	<div class="header">
+		<p>Traveller's Choice</p>
+	</div>
+	<div class="container">
+		Selection:
+		<select id="test">
+			<option>Cebu Taoist Temple</option>
+			<option>Temple of Leah</option>
+			<option>Sirao Flower Garden</option>
+			<option>10,000 Roses of Cebu</option>
+			<option>Osmeña Peak</option>
+			<option>Kawasan Falls</option>
+			<option>Pescador Island</option>
+			<option>Oslob Whale Sharks</option>
+			<option>Tumalog Fall</option>
+			<option>Sumilon Island’s Sandbar</option>
+		</select>
+		<button id="save">Proceed</button>
+		<div id="myModal" class="modal">
+			<div class="modal-content">
+				<span class="close">&times;</span>
+				<center><h2>Checkout Form</h2></center>
+				<hr>
+				<div class="row">
+					<div class="col-sm-6 border">
+						<label for="fname"><i class="fa fa-user"></i> Full Name</label>
+						<input type="text" id="fname" name="firstname" placeholder="Enter Full Name">
+						<label for="email"><i class="fa fa-envelope"></i> Email</label>
+						<input type="text" id="email" name="email" placeholder="Enter Email">
+						<label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+						<input type="text" id="add" name="city" placeholder="Enter City">
+					</div>
+					<div class="col-sm-6 border">
+						<h1>Available Options</h1>
+						<hr>
+						Date: <input type="date" id="date" required>
+						Select Travellers: <select id="travellers">
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+							<option>9</option>
+							<option>10</option>
+						</select>
+						<hr>
+						<i class="fa fa-check" style="font-size:18px">Free Pickup</i><br>
+						<i class="fa fa-check" style="font-size:18px">Instant Confirmation</i><br>
+						<i class="fa fa-check" style="font-size:18px">Duration: 7hrs (In any trip tours)</i><br>
+						<i class="fa fa-check" style="font-size:18px">Free Cancellation within 3hrs</i><br>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-sm-6 border">
+						<div class="text-modal">
+							<h6>SELECT ONLY ONE PLACE THAT YOU ARE INTERESTED TO VISIT</h6>
+							<hr>
+							<h6>Each tourist spot costs 1200/person, its affordable and efficient.</h6>
+							<input type="radio" name="tour" value="Cebu Taoist Temple" id="stt"> Cebu Taoist Temple<br>
+							<input type="radio" name="tour" value="Temple of Leah" id="stl"> Temple of Leah<br>
+							<input type="radio" name="tour" value="Sirao Flower Garden" id="ssfg"> Sirao Flower Garden<br>
+							<input type="radio" name="tour" value="10,000 Flowers of Cebu" id="sfc"> 10,000 Flowers of Cebu<br>
+							<input type="radio" name="tour" value="Osmeña Peak" id="sop"> Osmeña Peak<br>
+							<input type="radio" name="tour" value="Kawasan Falls" id="skf"> Kawasan Falls<br>
+							<input type="radio" name="tour" value="Pescador Island" id="spi"> Pescador Island<br>
+							<input type="radio" name="tour" value="Oslob Whale Sharks" id="sows"> Oslob Whale Sharks<br>
+							<input type="radio" name="tour" value="Tumalog Fall" id="stf"> Tumalog Fall<br>
+							<input type="radio" name="tour" value="Sumilon Island’s Sandbar" id="ssis"> Sumilon Island’s Sandbar<br>
+						</div>		
+					</div>
+					<div class="col-sm-6 border">
+						<center><h2>Summary</h2></center>
+						<hr>
+						<p>Full Name: </p><p id="sfname"></p>
+						<p>Email: </p><p id="semail"></p>
+						<p>Address: </p><p id="sadd"></p>
+						<p>Total Costs: </p><p id="stotal"></p>
+						<p>Selected Date: </p><p id="sdate"></p>
+						<p>Selected Place: </p><p id="sspot"></p>
+						<button onclick="display()">Show Summary</button>
+						<p>Try not to miss any information to fill up.</p><hr>
+						<a href="submit.html"><center><button class="btn btn-success">Submit</button></center></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<img id="back" src="back.jpg" style="width: 1100px;height: 500px; padding: 15px 0px; ">
+		<div id="ctt" class="row" hidden="true">
+			<div class="col-sm-6">
+				<h1>The Taoist Temple</h1>	
+				<div id="Carousel" class="carousel slide" data-ride="carousel" style="width: 100%" >
+					<ol class="carousel-indicators">
+						<li data-target="#Carousel" data-slide-to="0" class="active"></li>
+						<li data-target="#Carousel" data-slide-to="1"></li>
+						<li data-target="#Carousel" data-slide-to="2"></li>
+						<li data-target="#Carousel" data-slide-to="3"></li>
+						<li data-target="#Carousel" data-slide-to="4"></li>
+						<li data-target="#Carousel" data-slide-to="5"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="img1.jpg" style="width:560px; height: 340px">
+						</div>
+						<div class="item">
+							<img src="img2.jpg" style="width:560px; height: 340px">
+						</div>
+						<div class="item">
+							<img src="img3.jpg" style="width:560px; height: 340px">
+						</div>
+						<div class="item">
+							<img src="img4.jpg" style="width:560px; height: 340px">
+						</div>
+						<div class="item">
+							<img src="img5.jpg" style="width:560px; height: 340px">
+						</div>
+						<div class="item">
+							<img src="img6.jpg" style="width:560px; height: 340px">
+						</div>
+					</div>
+					<a class="left carousel-control" href="#Carousel" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+						<span class="sr-only"></span>
+					</a>
+					<a class="right carousel-control" href="#Carousel" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<span class="sr-only"></span>
+					</a>
+				</div>
+			</div>
+			<div class="col-sm-6 textwrapper">
+				<h1>Interesting Facts</h1>
+				<p>The Taoist Temple is the center of worship for Taoism, the religion which follows the teachings of the ancient Chinese philosopher, Lao Zi. In the temple, devotees perform rituals. One ritual is where one prays to the gods to grant one’s wish. This kind of ritual includes washing hands, going inside the chapel barefoot and dropping two blocks of wood. If the blocks of wood are both face up upon reaching the floor, it means one can make a wish.</p> 
+				<p>If not, it means it is not yet time for one’s wish to be granted and needs to come back again to the temple some other time. Aside from the worship, you can also do sightseeing, soul-searching, bebe-waving, watching turtles, pseudo-travelling and many other possible things you can do to enjoy.</p>
+				<p>Another ritual among the devotees is the climbing of its 181 steps, which represents the 81 chapters of Taoism scriptures, and lighting joss sticks and having their fortune be read by the monks. This kind of ritual is done during Wednesdays and Sundays.</p>
+			</div>
+		</div>
+		<div id="tol" class="row" hidden="true">
+			<div class="col-sm-6">
+				<h1>Temple of Leah</h1>	
+				<div id="Carousel3" class="carousel slide" data-ride="carousel" style="width: 100%" >
+					<ol class="carousel-indicators">
+						<li data-target="#Carousel" data-slide-to="0" class="active"></li>
+						<li data-target="#Carousel" data-slide-to="1"></li>
+						<li data-target="#Carousel" data-slide-to="2"></li>
+						<li data-target="#Carousel" data-slide-to="3"></li>
+						<li data-target="#Carousel" data-slide-to="4"></li>
+						<li data-target="#Carousel" data-slide-to="5"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="item active">
+							<img src="img01.jpg" style="width:560px; height: 340px">
+						</div>
+						<div class="item">
+							<img src="img02.jpg" style="width:560px; height: 340px">
+						</div>
+						<div class="item">
+							<img src="img03.jpg" style="width:560px; height: 340px">
+						</div>
+						<div class="item">
+							<img src="img04.jpg" style="width:560px; height: 340px">
+						</div>
+						<div class="item">
+							<img src="img05.jpg" style="width:560px; height: 340px">
+						</div>
+						<div class="item">
+							<img src="img06.jpg" style="width:560px; height: 340px">
+						</div>
+					</div>
+					<a class="left carousel-control" href="#Carousel3" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+						<span class="sr-only"></span>
+					</a>
+					<a class="right carousel-control" href="#Carousel3" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<span class="sr-only"></span>
+					</a>
+				</div>
+			</div>
+			<div class="col-sm-6 textwrapper">
+				<h1>Interesting Facts</h1>
+				<p>A Tribute of Undying Love</p>
+				<p>When we planned our holiday back in the Philippines, and set our destinations to Cebu and Bohol, my husband was enthusiastic and vocal about his eagerness to visit the "Taj Mahal in Cebu". Something that he saw in youtube that caught his eyes and attention. "Wait a minute," I told to myself. We have a residence in India & why would we see the replica when the original is just close to our reach? And tell you what, I was so glad I wasn't so skeptical in going to the place. Love made Temple of Leah possible as Teodorico Adarna, father of actress Ellen Adarna and owner of Queensland motels, offers the construction of the huge edifice to his wife Leah Villa Albino-Adarna.<p>
+					<p>It is a temple built out of love. Who was Leah and why was this temple built in her memory. When someone tells you they will build you a castle as a symbol of their undying love, they do not mean it literally. Well, here in Cebu, someone did just that! He just didn’t build a castle for his one true love but he built her a temple.</p>
+				</div>
+			</div>
+			<div id="sfg" class="row" hidden="true">
+				<div class="col-sm-6">
+					<h1>Sirao Flower Garden</h1>	
+					<div id="Carousel2" class="carousel slide" data-ride="carousel" style="width: 100%" >
+						<ol class="carousel-indicators">
+							<li data-target="#Carousel" data-slide-to="0" class="active"></li>
+							<li data-target="#Carousel" data-slide-to="1"></li>
+							<li data-target="#Carousel" data-slide-to="2"></li>
+							<li data-target="#Carousel" data-slide-to="3"></li>
+							<li data-target="#Carousel" data-slide-to="4"></li>
+							<li data-target="#Carousel" data-slide-to="5"></li>
+						</ol>
+						<div class="carousel-inner">
+							<div class="item active">
+								<img src="img014.jpg" style="width:560px; height: 340px">
+							</div>
+							<div class="item">
+								<img src="img012.jpg" style="width:560px; height: 340px">
+							</div>
+							<div class="item">
+								<img src="img013.jpg" style="width:560px; height: 340px">
+							</div>
+							<div class="item">
+								<img src="img011.jpg" style="width:560px; height: 340px">
+							</div>
+							<div class="item">
+								<img src="img015.jpg" style="width:560px; height: 340px">
+							</div>
+							<div class="item">
+								<img src="img016.jpg" style="width:560px; height: 340px">
+							</div>
+						</div>
+						<a class="left carousel-control" href="#Carousel2" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+							<span class="sr-only"></span>
+						</a>
+						<a class="right carousel-control" href="#Carousel2" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+							<span class="sr-only"></span>
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-6 textwrapper">
+					<h1>Interesting Facts</h1>
+					<p>The Vividly Beautiful Mini Amsterdam Of Cebu</p>
+					<p>Sirao Flower Garden, fondly nicknamed as Mini Amsterdam in Cebu, was a buzzing and trending topic that headlined our social media channels in 2015. Often billed as one of the most eye-catching spots in Cebu, this hidden garden was flooding our Facebook feeds, and luring people from all over the island with its fiery celosia flowers and stunning landscapes. With its immense popularity and extraordinary beauty, the place instantly became a hot-spot for selfies, nature photography and pre-nuptial pictorials.<p>
+						<p>As with most curious Filipinos and millennials in the city, I was so intrigue by this vivid garden that I decided to go to Sirao Flower Garden, even though it was a bit far from the city center.  In fact, I went there to see its flowers not just once, but on a couple of occasions. The garden was booming with fresh, healthy and colorful flowers. While there were a few tourists on the site, Sirao Flower Garden was not as messy as it was the last time I went there.  The place was clean, and people were no longer picking flowers, and stepping on stems. At last, the park’s visitors have learned to respect and preserve the beauty of nature. </p>
+					</div>
+				</div>
+				<div id="10krc" class="row" hidden="true">
+					<div class="col-sm-6">
+						<h1>10,000 Roses of Cebu</h1>	
+						<div id="Carousel4" class="carousel slide" data-ride="carousel" style="width: 100%" >
+							<ol class="carousel-indicators">
+								<li data-target="#Carousel" data-slide-to="0" class="active"></li>
+								<li data-target="#Carousel" data-slide-to="1"></li>
+								<li data-target="#Carousel" data-slide-to="2"></li>
+								<li data-target="#Carousel" data-slide-to="3"></li>
+								<li data-target="#Carousel" data-slide-to="4"></li>
+								<li data-target="#Carousel" data-slide-to="5"></li>
+							</ol>
+							<div class="carousel-inner">
+								<div class="item active">
+									<img src="img006.jpg" style="width:560px; height: 340px">
+								</div>
+								<div class="item">
+									<img src="img004.jpg" style="width:560px; height: 340px">
+								</div>
+								<div class="item">
+									<img src="img003.jpg" style="width:560px; height: 340px">
+								</div>
+								<div class="item">
+									<img src="img002.jpg" style="width:560px; height: 340px">
+								</div>
+								<div class="item">
+									<img src="img005.jpg" style="width:560px; height: 340px">
+								</div>
+								<div class="item">
+									<img src="img001.jpg" style="width:560px; height: 340px">
+								</div>
+							</div>
+							<a class="left carousel-control" href="#Carousel4" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left"></span>
+								<span class="sr-only"></span>
+							</a>
+							<a class="right carousel-control" href="#Carousel4" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+								<span class="sr-only"></span>
+							</a>
+						</div>
+					</div>
+					<div class="col-sm-6 textwrapper">
+						<h1>Interesting Facts</h1>
+						<p>An Evocative Cafe With Roses in Cordova</p>
+						<p>Philippines has magnificent beaches, fascinating waterfalls, scenic mountains, and beautiful islands, Cebu has earned its fame all over the globe. Aside from these, a new attraction is starting to make its way to fame. It is the 10,000 Roses Cafe located in Day-as, Cordova, Lapu-Lapu City. From the soft opening of the cafe, many people are flocking the area to get the perfect and most romantic picture. The 10,000 roses cafe is located at the end of Cordova Tourism Center, just right next to Lantaw Floating Restaurant. <p>
+							<p>Aside from the sumptuous food in the cafe, the main attraction of the place is the 10,000 artificial LED roses that are “planted” in the open area of the facility. These roses of about 3 feet tall dance with the sea breeze in the day time and are transformed into magical lights in the night as they are lit at around 6pm every night. It is owned by Miguel Cho, an interior designer. He was inspired by the famous Dongdaenum Design Plaza in South Korea. His intention in putting up the cafe is to create a romantic ambience that would be perfect for couples, a place precise for a beginning of a happily ever after. </p>
+						</div>
+					</div>
+					<div id="op" class="row" hidden="true">
+						<div class="col-sm-6">
+							<h1>Osmeña Peak</h1>	
+							<div id="Carousel5" class="carousel slide" data-ride="carousel" style="width: 100%" >
+								<ol class="carousel-indicators">
+									<li data-target="#Carousel" data-slide-to="0" class="active"></li>
+									<li data-target="#Carousel" data-slide-to="1"></li>
+									<li data-target="#Carousel" data-slide-to="2"></li>
+									<li data-target="#Carousel" data-slide-to="3"></li>
+									<li data-target="#Carousel" data-slide-to="4"></li>
+									<li data-target="#Carousel" data-slide-to="5"></li>
+								</ol>
+								<div class="carousel-inner">
+									<div class="item active">
+										<img src="img0006.jpg" style="width:560px; height: 340px">
+									</div>
+									<div class="item">
+										<img src="img0004.jpg" style="width:560px; height: 340px">
+									</div>
+									<div class="item">
+										<img src="img0003.jpg" style="width:560px; height: 340px">
+									</div>
+									<div class="item">
+										<img src="img0002.jpg" style="width:560px; height: 340px">
+									</div>
+									<div class="item">
+										<img src="img0005.jpg" style="width:560px; height: 340px">
+									</div>
+									<div class="item">
+										<img src="img0001.jpg" style="width:560px; height: 340px">
+									</div>
+								</div>
+								<a class="left carousel-control" href="#Carousel5" data-slide="prev">
+									<span class="glyphicon glyphicon-chevron-left"></span>
+									<span class="sr-only"></span>
+								</a>
+								<a class="right carousel-control" href="#Carousel5" data-slide="next">
+									<span class="glyphicon glyphicon-chevron-right"></span>
+									<span class="sr-only"></span>
+								</a>
+							</div>
+						</div>
+						<div class="col-sm-6 textwrapper">
+							<h1>Interesting Facts</h1>
+							<p>An Authentic Highest Peak of Cebu</p>
+							<p>Osmeña Peak is said to be one of the highest points in the island of Cebu, a province in the Philippines. Standing 1,013 meters above sea level, this stunning site offers a dramatic view of jagged cliffs with a view of the sea in the distance. Locals often liken the view to Bohol’s Chocolate Hills. But instead of rolling curved mounds, the hills here have sharp protruding peaks. Set amidst the limestone cliffs, the hills resemble a field of gigantic green Hershey’s Kisses. It’s unlike anything I’ve seen during previous hikes. <p>
+								<p>Anyone aiming to start their journey to the mountaineering world would have to start small. One good place to start would be Osmeña Peak in the island of Cebu. Osmeña Peak straddles the municipalities of Dalaguete and Badian in the south. It rises at 1,013 meters above sea level and is the highest peak in the island. One thing that makes this place stand out is that you have a 360-degree view of the surrounding area. In fact, you can even see the island of Bohol when you look towards the east and the island of Negros when you shift your gaze to the west. It is around 80 kilometers from Cebu City and is considered as the summer capital and vegetable basket of Cebu.</p>
+							</div>
+						</div>
+						<div id="kf" class="row" hidden="true">
+							<div class="col-sm-6">
+								<h1>Kawasan Falls</h1>	
+								<div id="Carousel6" class="carousel slide" data-ride="carousel" style="width: 100%" >
+									<ol class="carousel-indicators">
+										<li data-target="#Carousel" data-slide-to="0" class="active"></li>
+										<li data-target="#Carousel" data-slide-to="1"></li>
+										<li data-target="#Carousel" data-slide-to="2"></li>
+										<li data-target="#Carousel" data-slide-to="3"></li>
+										<li data-target="#Carousel" data-slide-to="4"></li>
+										<li data-target="#Carousel" data-slide-to="5"></li>
+									</ol>
+									<div class="carousel-inner">
+										<div class="item active">
+											<img src="img0100.jpg" style="width:560px; height: 340px">
+										</div>
+										<div class="item">
+											<img src="img0200.jpg" style="width:560px; height: 340px">
+										</div>
+										<div class="item">
+											<img src="img0300.jpg" style="width:560px; height: 340px">
+										</div>
+										<div class="item">
+											<img src="img0400.jpg" style="width:560px; height: 340px">
+										</div>
+										<div class="item">
+											<img src="img0500.jpg" style="width:560px; height: 340px">
+										</div>
+										<div class="item">
+											<img src="img0600.jpg" style="width:560px; height: 340px">
+										</div>
+									</div>
+									<a class="left carousel-control" href="#Carousel6" data-slide="prev">
+										<span class="glyphicon glyphicon-chevron-left"></span>
+										<span class="sr-only"></span>
+									</a>
+									<a class="right carousel-control" href="#Carousel6" data-slide="next">
+										<span class="glyphicon glyphicon-chevron-right"></span>
+										<span class="sr-only"></span>
+									</a>
+								</div>
+							</div>
+							<div class="col-sm-6 textwrapper">
+								<h1>Interesting Facts</h1>
+								<p>The Alluring Falls in Cebu</p>
+								<p>The most popular destination from Badian is the Kawasan Falls, if you are staying right in Kawasan Falls please inform the resort the possible time of your arrival so they can send personnel to meet you at the arrival point. If you are taking a bus please inform the bus helper or the bus driver that you are going to Kawasan Falls, they know the place. Kawasan Falls is a 15 to 30 minutes walk from the national road. Note: As with all tourist attractions there will be pests offering a guide service which is totally not needed and they just irritate you anyway then ask for cash. <p>
+									<p>Kawasan Falls is a must see attraction while you’re in town, it’s a three-layered waterfall system located at Barangay Matutinao. The water is fresh and crystal clear. The magical landscape of Kawasan Falls is very cool and refreshing, an ideal paradise to anyone who loves and want to get intimate with nature. Enjoy the cold swim in the fresh, crystal clear spring water of Kawasan Falls. At the highest accessible point of Kawasan Falls, the source can be found. It is called Kabukalan "The Source", the fresh water rushes from a small cave and pours over the stones. Climbing up to Kabukalan needs a bit extra energy because it’s quite far from the second level.</p>
+								</div>
+							</div>
+							<div id="pi" class="row" hidden="true">
+								<div class="col-sm-6">
+									<h1>Pescador Island</h1>	
+									<div id="Carousel7" class="carousel slide" data-ride="carousel" style="width: 100%" >
+										<ol class="carousel-indicators">
+											<li data-target="#Carousel" data-slide-to="0" class="active"></li>
+											<li data-target="#Carousel" data-slide-to="1"></li>
+											<li data-target="#Carousel" data-slide-to="2"></li>
+											<li data-target="#Carousel" data-slide-to="3"></li>
+											<li data-target="#Carousel" data-slide-to="4"></li>
+											<li data-target="#Carousel" data-slide-to="5"></li>
+										</ol>
+										<div class="carousel-inner">
+											<div class="item active">
+												<img src="img1010.jpg" style="width:560px; height: 340px">
+											</div>
+											<div class="item">
+												<img src="img2020.jpg" style="width:560px; height: 340px">
+											</div>
+											<div class="item">
+												<img src="img3030.jpg" style="width:560px; height: 340px">
+											</div>
+											<div class="item">
+												<img src="img4040.jpg" style="width:560px; height: 340px">
+											</div>
+											<div class="item">
+												<img src="img5050.jpg" style="width:560px; height: 340px">
+											</div>
+											<div class="item">
+												<img src="img6060.jpg" style="width:560px; height: 340px">
+											</div>
+										</div>
+										<a class="left carousel-control" href="#Carousel7" data-slide="prev">
+											<span class="glyphicon glyphicon-chevron-left"></span>
+											<span class="sr-only"></span>
+										</a>
+										<a class="right carousel-control" href="#Carousel7" data-slide="next">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+											<span class="sr-only"></span>
+										</a>
+									</div>
+								</div>
+								<div class="col-sm-6 textwrapper"><h1>Interesting Facts</h1>
+									<p>The Chime of Moalboal and Tañon Strait</p>
+									<p>Pescador Island derived its name from the Spanish word “pescador” which means fisherman. Its name was inspired from the Philippines’ Spanish colonial heritage. The waters in the island is very abundant with fishes living on the surrounding coral reef that attracts many fishermen and that is where it got its name.<p>
+										<p>What you can see in Pescador Island? On a boat ride going to the island, a group of dolphins swimming with the boats is a possible sight, a chance to see sea turtles is a probability, depending on the weather condition, an awesome adventure swimming or diving with the famous sardine run, and a great experience diving or snorkeling in the beautiful marine sanctuary. Pescador Island is a protected marine life sanctuary. Fees going to the island is collected to help finance various conservation programs in the Municipality of Moalboal in cooperation with Moalboal Dive Center Association. Some of the programs are the patrols and enforcement to abolish destructive fishing, village improvement programs, collection and disposal of plastic and other wastes that enter the local waters, marine conservation education of village children and adults, and reef and mangrove rehabilitation.</p></div>
+									</div>
+									<div id="ows" class="row" hidden="true">
+										<div class="col-sm-6">
+											<h1>Oslob Whale Sharks</h1>	
+											<div id="Carousel8" class="carousel slide" data-ride="carousel" style="width: 100%" >
+												<ol class="carousel-indicators">
+													<li data-target="#Carousel" data-slide-to="0" class="active"></li>
+													<li data-target="#Carousel" data-slide-to="1"></li>
+													<li data-target="#Carousel" data-slide-to="2"></li>
+													<li data-target="#Carousel" data-slide-to="3"></li>
+													<li data-target="#Carousel" data-slide-to="4"></li>
+													<li data-target="#Carousel" data-slide-to="5"></li>
+												</ol>
+												<div class="carousel-inner">
+													<div class="item active">
+														<img src="img10100.jpg" style="width:560px; height: 340px">
+													</div>
+													<div class="item">
+														<img src="img20200.jpg" style="width:560px; height: 340px">
+													</div>
+													<div class="item">
+														<img src="img30300.jpg" style="width:560px; height: 340px">
+													</div>
+													<div class="item">
+														<img src="img40400.jpg" style="width:560px; height: 340px">
+													</div>
+													<div class="item">
+														<img src="img50500.jpg" style="width:560px; height: 340px">
+													</div>
+													<div class="item">
+														<img src="img60600.jpg" style="width:560px; height: 340px">
+													</div>
+												</div>
+												<a class="left carousel-control" href="#Carousel8" data-slide="prev">
+													<span class="glyphicon glyphicon-chevron-left"></span>
+													<span class="sr-only"></span>
+												</a>
+												<a class="right carousel-control" href="#Carousel8" data-slide="next">
+													<span class="glyphicon glyphicon-chevron-right"></span>
+													<span class="sr-only"></span>
+												</a>
+											</div>
+										</div>
+										<div class="col-sm-6 textwrapper"><h1>Interesting Facts</h1>
+											<p>The Fascinating Whale Sharks in Oslob</p>
+											<p>The whale shark in Oslob, Cebu Province is one of the most fascinating attractions on this tropical island. These whale sharks are locally called as "butanding". You can experience and enjoy your close encounter with these creatures in this province if you travel in Tanawan Town down in the southern part of Cebu. The fishermen who became caretakers and operators of this tourism organized the activities for visitors interested in observing or swimming (or even scuba diving) with these huge fishes.<p>
+												<p>The operators, in collaboration with the local government, offers facilities including paddle boats, snorkels, flippers, life vests, diving gears, among others. The Oslob, Cebu whale sharks (Rhincodon typus) are considered as the living species of the 'largest fish in the world'. They can reach up to 15 meters long, but the ones in Tanawan, Cebu are smaller as observed by many, but could also reach that long when they become more mature. Its huge size resembles that of a whale, which exactly explains why they are called as such. The surprising fact about these 'gentle giants' is that they only eats krills (or small shrimps), a fact the counters the common knowledge that bigger creatures usually eat much bigger than shrimps. And, although whale sharks also resemble that of other sharks they are very friendly to humans and other smaller creatures. In other words, they are not as aggressive as the real sharks that we normally know about.</p></div>
+											</div>
+											<div id="tf" class="row" hidden="true">
+												<div class="col-sm-6">
+													<h1>Tumalog Falls</h1>	
+													<div id="Carousel9" class="carousel slide" data-ride="carousel" style="width: 100%" >
+														<ol class="carousel-indicators">
+															<li data-target="#Carousel" data-slide-to="0" class="active"></li>
+															<li data-target="#Carousel" data-slide-to="1"></li>
+															<li data-target="#Carousel" data-slide-to="2"></li>
+															<li data-target="#Carousel" data-slide-to="3"></li>
+															<li data-target="#Carousel" data-slide-to="4"></li>
+															<li data-target="#Carousel" data-slide-to="5"></li>
+														</ol>
+														<div class="carousel-inner">
+															<div class="item active">
+																<img src="img101000.jpg" style="width:560px; height: 340px">
+															</div>
+															<div class="item">
+																<img src="img202000.jpg" style="width:560px; height: 340px">
+															</div>
+															<div class="item">
+																<img src="img303000.jpg" style="width:560px; height: 340px">
+															</div>
+															<div class="item">
+																<img src="img404000.jpg" style="width:560px; height: 340px">
+															</div>
+															<div class="item">
+																<img src="img505000.jpg" style="width:560px; height: 340px">
+															</div>
+															<div class="item">
+																<img src="img606000.jpg" style="width:560px; height: 340px">
+															</div>
+														</div>
+														<a class="left carousel-control" href="#Carousel9" data-slide="prev">
+															<span class="glyphicon glyphicon-chevron-left"></span>
+															<span class="sr-only"></span>
+														</a>
+														<a class="right carousel-control" href="#Carousel9" data-slide="next">
+															<span class="glyphicon glyphicon-chevron-right"></span>
+															<span class="sr-only"></span>
+														</a>
+													</div>
+												</div>
+												<div class="col-sm-6 textwrapper"><h1>Interesting Facts</h1>
+													<p>A Magical Gossamer Curtain in Oslob</p>
+													<p>One of the best things about our home province of Cebu is that our humble island is jam-packed with so many unique natural wonders. Come to think of it, each municipality has its own set of “specialty” attractions, and many more are still being discovered. Cebu is like a paradise of multiple facets. It’s no wonder then why so many visitors, local or foreign, fall in love with Cebu. One of these natural wonders is the unique horseshoe waterfall of Tumalog Falls in Oslob, a municipality 170 kilometers from Cebu City. Lately, it has gotten a lot of attention after it became a side trip for people who wish to see the butandings. Since our early-year excursion ended in Oslob, we decided to make Tumalog Falls our last stopover.<p>
+														<p>The 5-hour hike from Mt. Hambubuyog left us all with empty tummies, so we had a hearty late lunch at one of the market’s carenderias. After the filling meal, we negotiated a few habal-habal drivers to take us to one of the town’s best known natural treasures. After acceding to a mutually beneficial rate, we hopped on the habal-habals and started the last segment of our adventure. The whole area is basically kept and protected from being ‘developed’. It means that there are not big and unnatural concreted structures close and surrounding the Falls itself. Tumalog Waterfalls is enveloped and protected by the natural and some century-old trees, bamboo trees and other endemic plants in the area. You can be assured of the healing effect you can get from the pure water and all elements that the environment provides and just simply enjoy the water.</p></div>
+													</div>
+													<div id="sis" class="row" hidden="true">
+														<div class="col-sm-6">
+															<h1>Sumilon Island’s Sandbar</h1>	
+															<div id="Carousel10" class="carousel slide" data-ride="carousel" style="width: 100%" >
+																<ol class="carousel-indicators">
+																	<li data-target="#Carousel" data-slide-to="0" class="active"></li>
+																	<li data-target="#Carousel" data-slide-to="1"></li>
+																	<li data-target="#Carousel" data-slide-to="2"></li>
+																	<li data-target="#Carousel" data-slide-to="3"></li>
+																	<li data-target="#Carousel" data-slide-to="4"></li>
+																	<li data-target="#Carousel" data-slide-to="5"></li>
+																</ol>
+																<div class="carousel-inner">
+																	<div class="item active">
+																		<img src="img101001.jpg" style="width:560px; height: 340px">
+																	</div>
+																	<div class="item">
+																		<img src="img202002.jpg" style="width:560px; height: 340px">
+																	</div>
+																	<div class="item">
+																		<img src="img303003.jpg" style="width:560px; height: 340px">
+																	</div>
+																	<div class="item">
+																		<img src="img404004.jpg" style="width:560px; height: 340px">
+																	</div>
+																	<div class="item">
+																		<img src="img505005.jpg" style="width:560px; height: 340px">
+																	</div>
+																	<div class="item">
+																		<img src="img606006.jpg" style="width:560px; height: 340px">
+																	</div>
+																</div>
+																<a class="left carousel-control" href="#Carousel10" data-slide="prev">
+																	<span class="glyphicon glyphicon-chevron-left"></span>
+																	<span class="sr-only"></span>
+																</a>
+																<a class="right carousel-control" href="#Carousel10" data-slide="next">
+																	<span class="glyphicon glyphicon-chevron-right"></span>
+																	<span class="sr-only"></span>
+																</a>
+															</div>
+														</div>
+														<div class="col-sm-6 textwrapper">
+															<h1>Interesting Facts</h1>
+															<p>Oslob’s Amazing Adventure Island</p>
+															<p>Want to try the outdoors but still be comfortable? Glamping is the buzzword. There are several big tents near the north beach side. But if you think you’ll be using uncomfortable sleeping bags, think again. The tents are spacious enough to accommodate two single beds, a desk table with lamp, some compact cabinets, an electric fan and foldable chairs. How’s that for roughing it up comfortably? The main draw of Sumilon Island is the shifting sand bar. It’s a gorgeous tongue of land that, depending on the time of the year can be at different locations. The water is just so clear and clean and from a distance, very picturesque. There are also other beaches around the island, especially the north side that has an undeveloped strip. Large and spacious villas fit for the family with it’s own pool or for a couple with an equally spacious toilet and bath. Airconditioned, luxurious and safe. These villas are tucked in quiet areas of the island but still close and walking distance to The Pavilion. These have verandas as well as just close by the sea where you can lounge and listen to the waves.<p>
+																<p>There’s the buffet lunch and breakfast with different sections that are good tasting and sating. Ala carte dining is also available with a good selection of Filipino and international dishes prepared and cooked by talented chefs. The lechon kawali is a must and so is the Cebuano dry adobo served with adobo rice inside a bamboo container. You should hike around the island so that you can appreciate more what the island has to offer. There are three different trails catering to different fitness levels: beginners, moderate and advanced. The last one takes you around the island and is the longest of the trails. You get to see the watchtower, a lighthouse. Visit various viewpoints that has stunning vistas below. You can do this with or without a guide.</p>
+															</div>
+														</div>	
+														<button class="open-button" id="myBtn">Payment Form</button>
+														<script type="text/javascript" src="jquery.js"></script>
+														<script type="text/javascript">
+															function display(){
+																var fname = document.getElementById("fname").value;
+																document.getElementById("sfname").innerHTML = fname;
+																var email = document.getElementById("email").value;
+																document.getElementById("semail").innerHTML = email;
+																var add = document.getElementById("add").value;
+																document.getElementById("sadd").innerHTML = add;
+																var date = document.getElementById("date").value;
+																document.getElementById("sdate").innerHTML = date;
+																var travellers = document.getElementById("travellers").value;
+																var sum = travellers * 1200;
+																var total = document.getElementById("stotal").innerHTML = travellers + " person " + " = " + sum + "pesos";
+																var spot = document.getElementsByName("tour");
+																for (var i = 0; i < spot.length; i++) {
+																	if(spot[i].checked){
+																		document.getElementById("sspot").innerHTML = spot[i].value;
+																	}
+																}
+															}
+															$(function(){
+																$("#save").click(function(){
+																	$("#back").hide();
+																	var option = document.getElementById("test").options;
+																	var index = document.getElementById("test").selectedIndex;
+																	var show = option[index].value;
+																	$("#ctt, #tol, #sfg, #10krc, #op, #kf, #pi, #ows, #tf, #sis").hide();
+																	if (show == "Cebu Taoist Temple") {
+																		$("#ctt").show();
+																	}
+																	else if (show == "Temple of Leah") {
+																		$("#tol").show();
+																	}
+																	else if (show == "Sirao Flower Garden") {
+																		$("#sfg").show();
+																	}
+																	else if (show == "10,000 Roses of Cebu") {
+																		$("#10krc").show();
+																	}
+																	else if (show == "Osmeña Peak") {
+																		$("#op").show();
+																	}
+																	else if (show == "Kawasan Falls") {
+																		$("#kf").show();
+																	}
+																	else if (show == "Pescador Island") {
+																		$("#pi").show();
+																	}
+																	else if (show == "Oslob Whale Sharks") {
+																		$("#ows").show();
+																	}
+																	else if (show == "Tumalog Fall") {
+																		$("#tf").show();
+																	}
+																	else if (show == "Sumilon Island’s Sandbar") {
+																		$("#sis").show();
+																	}
+																})
+															})
+															var modal = document.getElementById('myModal');
+															var btn = document.getElementById("myBtn");
+															var span = document.getElementsByClassName("close")[0];
+															btn.onclick = function() {
+																modal.style.display = "block";
+															}
+															span.onclick = function() {
+																modal.style.display = "none";
+															}
+															window.onclick = function(event) {
+																if (event.target == modal) {
+																	modal.style.display = "none";
+																}
+															}
+
+															$(function(){
+																$("#myBtn").click(function(){
+																	$("#myModal").fadeIn(3000);
+																})
+															})
+															function openForm() {
+																document.getElementById("myForm").style.display = "block";
+															}
+
+															function closeForm() {
+																document.getElementById("myForm").style.display = "none";
+															} 
+														</script>
+
+													</body>
+													</html>
